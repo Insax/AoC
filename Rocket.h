@@ -12,8 +12,6 @@
 class Rocket {
 public:
     Rocket();
-
-public:
     Rocket(const std::vector<long> modules);
     long long calculateFuelRequirement();
 private:

@@ -7,7 +7,6 @@
 
 Module::Module(long mass) {
     this->setMass(mass);
-    std::cout << "Constructor of Module" << mass << std::endl;
     this->fuel = FuelRequirement(mass);
 }
 
@@ -25,6 +24,7 @@ void Module::setMass(long mass) {
 }
 
 Module::Module(const Module &mdl) {
-    Module::setMass(mdl.getMass());
+    this->setMass(mdl.getMass());
+    this->fuel = FuelRequirement(mdl.getMass());
 }
 

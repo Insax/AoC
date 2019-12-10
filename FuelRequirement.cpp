@@ -9,9 +9,7 @@
 
 FuelRequirement::FuelRequirement(long mass) {
     double tmpMass = mass;
-    std::cout << "Constructor of Fuel Requirement " << mass << std::endl;
     this->fuelAmount = (long)(mass ? (floor(tmpMass / 3) - 2) : 0);
-    std::cout << "Saved Fuel Amount " << this->fuelAmount;
 }
 
 FuelRequirement::FuelRequirement(const FuelRequirement &requirement) {

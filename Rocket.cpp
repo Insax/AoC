@@ -6,20 +6,15 @@
 #include "Rocket.h"
 
 Rocket::Rocket(std::vector<long> modules) {
-    for(auto it : modules) {
-        std::cout << "Iterate Through long Vector" << it << std::endl;
+    for(auto &it : modules) {
         this->modules.emplace_back(it);
     }
 }
 
 long long Rocket::calculateFuelRequirement() {
     long long fuelRequirement = 0;
-    for(auto &it : modules) {
+    for(auto &it : this->modules) {
         fuelRequirement += it.getFuelRequirement();
-        std::cout << fuelRequirement << std::endl;
     }
-    std::cout << fuelRequirement << std::endl;
     return fuelRequirement;
 }
-
-Rocket::Rocket() {}
