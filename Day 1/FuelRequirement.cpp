@@ -8,8 +8,7 @@
 
 
 FuelRequirement::FuelRequirement(long mass) {
-    double tmpMass = mass;
-    this->fuelAmount = (long)(mass ? (floor(tmpMass / 3) - 2) : 0);
+    this->fuelAmount = this->calculateFuelNeeded(mass);
 }
 
 FuelRequirement::FuelRequirement(const FuelRequirement &requirement) {
@@ -22,4 +21,14 @@ long FuelRequirement::getFuelAmount() const {
 
 void FuelRequirement::setFuelAmount(long fuelAmount) {
     this->fuelAmount = fuelAmount;
+}
+
+long FuelRequirement::calculateFuelNeeded(long mass) {
+    double tmpMass = mass;
+    long newMass = (long)(mass ? (floor(tmpMass / 3) - 2) : 0);
+    if(newMass > 8) {
+        return (newMass += this->calculateFuelNeeded(newMass));
+    } else {
+        return newMass;
+    }
 }

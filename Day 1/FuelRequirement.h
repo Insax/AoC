@@ -17,6 +17,7 @@ public:
 
     void setFuelAmount(long fuelAmount);
 
+    long calculateFuelNeeded(long mass);
     /**
      * Empty Constructor
      */
